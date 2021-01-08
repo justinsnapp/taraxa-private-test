@@ -47,11 +47,29 @@ Options:
   -h, --help                       display help for command
   ```
 
+## Running a node
 
+Docker images of the node already built along with the Taraxa cli installed are available  https://hub.docker.com/r/taraxa/taraxa
+
+```
+docker pull taraxa/taraxa
+```
+
+To run a node you must provide the path to conf file:
+
+```
+./main --conf_taraxa /opt/taraxa_data/conf/testnet.json
+```
 
 
 ## GOAL 1: Generate a private testnet
 
 Setup a private testnet with one boot node and two (or more) additional nodes
 
-## GOAL 2: 
+## GOAL 2: Deploy a smart contract onto the private Taraxa network
+
+Taraxa's virtual machine is backwards compatable with Ethereum so contracts written for Ethereum can be deployed onto the Taraxa network.   Additionally, Taraxa is compatable with Ethereum's RPC calls so you can use the taraxa cli to make RPC calls, but you can also use web3.py https://pypi.org/project/web3/ or web3js https://www.npmjs.com/package/web3 to interact with the network
+
+## GOAL 3: Make calls to the contract to do something and display the results
+
+
