@@ -1,11 +1,15 @@
-# taraxa-private-test
+# Demonstrate setup of a private network of Taraxa nodes and deploy a simple smart contract application onto it
 
 
+## Taraxa Command Line Interface
 
+The Taraxa command line interface is a tool used to generate account keys, and node config files.    To install `taraxa-cli` use following command:
 
 ```
 npm install -g taraxa-cli
 ```
+
+Example for generating a set of keys for a Taraxa node:
 
 ```
 jsnapp% taraxa account
@@ -15,6 +19,8 @@ public key: 0x04cbd8f6cfd8dc52683b6f0e41bfa47609622389461889210b115986370a72cc5f
 private key: 0x6551c1f8eeb2daea614e59d5fcd53c47333b5f09f3171fdd2d6192276c65c08c
 mnemonic: fancy alone nominee dose custom spend other lunar garlic video south second
 ```
+
+Taraxa config generation can be done using the cli by adding various options to it.   If a known name like "testnet" is supplied you will get a config for joining the public testnet.  In this case we want to generate one for a private testnet.   You will find it helpful though to reference the config generated for the public tesnet to see how the genesis block is defined.  The private testnet genesis block but allocate coins to node(s) that wish to pariticpate in consensus.  Re-allocation can be done via RPC calls to generate transactions to send coins from one node to another.
 
 ```
 jsnapp% taraxa config --help                                
@@ -40,3 +46,12 @@ Options:
   -v, --vrf-secret <string>        generate config using specific vrf secret
   -h, --help                       display help for command
   ```
+
+
+
+
+## GOAL 1: Generate a private testnet
+
+Setup a private testnet with one boot node and two (or more) additional nodes
+
+## GOAL 2: 
