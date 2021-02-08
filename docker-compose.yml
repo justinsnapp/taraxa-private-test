@@ -1,0 +1,24 @@
+version: '3'
+volumes:
+    taraxa_data:
+services:
+    taraxa-node:
+        container_name: taraxa-node
+        image: taraxa/taraxa:1.5.55-89
+        restart: always
+        ports:
+            - "10002:10002"
+            - "10002:10002/udp"
+            - "7777:7777"
+            - "8777:8777"
+        expose:
+            - "10002"
+            - "7777"
+            - "8777"
+        entrypoint:
+            /usr/bin/sh
+        command: >
+            -c "taraxa config -d /var/taraxa --force &&
+                ./main --conf_taraxa /var/taraxa/conf/private.json"
+        volumes:
+            - taraxa_data:/var/taraxa
